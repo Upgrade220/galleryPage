@@ -8,20 +8,20 @@
 
 @font-face {
     font-family: "Roboto Thin";
-    src: url("/fonts/Roboto-Thin.woff2") format("woff2"), 
-    url("/fonts/Roboto-Thin.woff") format("woff");
+    src: url("/static/fonts/Roboto-Thin.woff2") format("woff2"), 
+    url("/static/fonts/Roboto-Thin.woff") format("woff");
 }
 
 @font-face {
     font-family: "Cookie";
-    src: url("/fonts/Cookie-Regular.woff2") format("woff2"), 
-    url("/fonts/Cookie-Regular.woff") format("woff");
+    src: url("/static/fonts/Cookie-Regular.woff2") format("woff2"), 
+    url("/static/fonts/Cookie-Regular.woff") format("woff");
 }
 
 @font-face {
     font-family: "Anton";
-    src: url("/fonts/Anton-Regular.woff2") format("woff2"), 
-    url("/fonts/Anton-Regular.woff") format("woff");
+    src: url("/static/fonts/Anton-Regular.woff2") format("woff2"), 
+    url("/static/fonts/Anton-Regular.woff") format("woff");
 }
 
 body {

@@ -7,7 +7,7 @@ const rootDir = process.cwd();
 const port = 3000;
 const app = express();
 
-app.use('/static', express.static('static'));
+app.use("/static", express.static(path.join(rootDir,'static')));
 app.use(cookieParser());
 
 app.set("view engine", "hbs");
@@ -23,7 +23,7 @@ app.engine(
 );
 
 app.get("/", (_, res) => {
-    res.sendFile(path.join(rootDir, "/static/html/index.html"));
+    res.sendFile(path.join(rootDir, "/static/index.html"));
 });
 
 app.listen(port, () => console.log(`App listening on port ${port}`));

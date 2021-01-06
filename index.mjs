@@ -26,4 +26,12 @@ app.get("/", (_, res) => {
     res.sendFile(path.join(rootDir, "/static/index.html"));
 });
 
+app.get("/models", (_, res) => {
+    res.sendFile(path.join(rootDir, "/static/models.html"));
+});
+
+app.get("/about", (_, res) => {
+    res.sendFile(path.join(rootDir, "/static/about.html"));
+});
+
 app.listen(port, () => console.log(`App listening on port ${port}`));

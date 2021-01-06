@@ -1,0 +1,57 @@
+main{
+    display: grid;
+    grid-template-columns: auto min-content auto;
+    grid-template-areas: ". m .";
+}
+
+.main__block {
+    grid-area: m;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    font-family: "Raleway";
+}
+
+.title__page {
+    margin: 10px 0;
+    white-space: nowrap;
+    font-size: 60px;
+    font-weight: normal;
+    letter-spacing: 9px;
+    text-shadow: rgba(10, 189, 240, 0.298039) 3px 3px 0px, rgba(254, 1, 1, 0.298039) -3px -3px 0px;
+}
+
+.section {
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-rows: 3em auto;
+    grid-template-areas: "image title" "image paragraph";
+    gap: 10px;
+    margin: 5px 0;
+    width: 100%;
+}
+
+.section__img {
+    width: 300px;
+    height: auto;
+    grid-area: image;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.section__title {
+    grid-area: title;
+    white-space: nowrap;
+    margin: auto 0;
+    letter-spacing: 15.4px;
+    font-size: 25px;
+    font-weight: normal;
+    text-shadow: rgba(0, 0, 0, 0.4) 0px 4px 5px;
+}
+
+.section__p {
+    grid-area: paragraph;
+    margin: 0;
+    font-size: 18px;
+}

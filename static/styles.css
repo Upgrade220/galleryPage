@@ -8,20 +8,22 @@
 
 @font-face {
     font-family: "Roboto Thin";
-    src: url("/static/fonts/Roboto-Thin.woff2") format("woff2"), 
-    url("/static/fonts/Roboto-Thin.woff") format("woff");
+    src: url("/static/fonts/Roboto-Thin.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "Cookie";
-    src: url("/static/fonts/Cookie-Regular.woff2") format("woff2"), 
-    url("/static/fonts/Cookie-Regular.woff") format("woff");
+    src: url("/static/fonts/Cookie-Regular.woff2") format("woff2");
 }
 
 @font-face {
     font-family: "Anton";
-    src: url("/static/fonts/Anton-Regular.woff2") format("woff2"), 
-    url("/static/fonts/Anton-Regular.woff") format("woff");
+    src: url("/static/fonts/Anton-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Raleway";
+    src: url("/static/fonts/Raleway.woff2") format("woff2");
 }
 
 body {

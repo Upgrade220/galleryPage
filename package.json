@@ -2,7 +2,8 @@
   "name": "galleryPage",
   "version": "1.0.0",
   "scripts": {
-    "start": "better-npm-run start",
+    "start": "node index.mjs",
+    "nodemon": "better-npm-run start",
     "debug": "better-npm-run debug"
   },
   "betterScripts": {

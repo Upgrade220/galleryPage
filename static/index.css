@@ -1,0 +1,50 @@
+:root {
+    --textside3d: #ababab;
+}
+
+#catimg{
+    height: 80vh;
+    width: 100vw;
+    object-fit: cover;
+}
+
+.text__block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.text__pos{
+    display: inline;
+    text-align: center;
+    color: white;
+    margin: 0;
+}
+
+.text__top {
+    font-family: "Cookie";
+    font-size: 70px;
+    border-bottom: 10px white ridge;
+}
+
+.text__bottom {
+    font-family: "Anton";
+    font-size: 80px;
+    width: 100%;
+}
+
+.text3d {
+    text-shadow: 1px 1px 0 var(--textside3d), 
+        1px 2px 0 var(--textside3d), 
+        1px 3px 0 var(--textside3d), 
+        1px 4px 0 var(--textside3d),
+        1px 5px 0 var(--textside3d), 
+        1px 6px 0 var(--textside3d), 
+        1px 7px 0 var(--textside3d), 
+        1px 8px 0 var(--textside3d),
+        5px 13px 15px black;
+}

@@ -1,5 +1,6 @@
 {
   "name": "galleryPage",
+  "version": "1.0.0",
   "scripts": {
     "start": "better-npm-run start",
     "debug": "better-npm-run debug"
@@ -21,11 +22,11 @@
   "dependencies": {
     "cookie-parser": "^1.4.5",
     "express": "^4.17.1",
-    "express-handlebars": "^5.2.0",
-    "nodemon": "^2.0.7"
+    "express-handlebars": "^5.2.0"
   },
   "devDependencies": {
     "better-npm-run": "^0.1.1",
+    "nodemon": "^2.0.7",
     "prettier": "^2.2.1"
   }
 }

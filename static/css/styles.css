@@ -79,10 +79,24 @@ header {
 
 main {
     position: relative;
+    margin-bottom: 10px;
 }
 
 footer {
+    padding: 15px 0;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
     background-color: var(--borderpink);
+    color: var(--darkpink);
+    font-family: "Roboto Thin";
+    font-size: 1em;
+    font-weight: bold;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--darkpink);
 }
 
 @media only screen and (max-width: 600px) {
@@ -92,17 +106,14 @@ footer {
         justify-content: center;
         align-content: center;
     }
-
     .menu {
         display: grid;
         grid-template-columns: auto auto;
         grid-template-columns: auto auto;
     }
-
     .menu__el {
         text-align: center;
     }
-
     .menu__el:nth-child(2) {
         border-right: none;
     }

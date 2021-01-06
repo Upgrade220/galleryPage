@@ -2,7 +2,7 @@
     --textside3d: #ababab;
 }
 
-#catimg{
+#catimg {
     height: 80vh;
     width: 100vw;
     object-fit: cover;
@@ -18,7 +18,7 @@
     align-items: center;
 }
 
-.text__pos{
+.text__pos {
     display: inline;
     text-align: center;
     color: white;
@@ -28,7 +28,7 @@
 .text__top {
     font-family: "Cookie";
     font-size: 70px;
-    border-bottom: 10px white ridge;
+    border-bottom: 7px white ridge;
 }
 
 .text__bottom {
@@ -38,13 +38,10 @@
 }
 
 .text3d {
-    text-shadow: 1px 1px 0 var(--textside3d), 
-        1px 2px 0 var(--textside3d), 
-        1px 3px 0 var(--textside3d), 
-        1px 4px 0 var(--textside3d),
-        1px 5px 0 var(--textside3d), 
-        1px 6px 0 var(--textside3d), 
-        1px 7px 0 var(--textside3d), 
-        1px 8px 0 var(--textside3d),
-        5px 13px 15px black;
+    text-shadow: #c8c8c8 1px 1px 0px, 
+    #b4b4b4 0px 2px 0px, 
+    #a0a0a0 0px 3px 0px, 
+    rgba(140, 140, 140, 0.498039) 0px 4px 0px, 
+    #787878 0px 0px 0px, 
+    rgba(0, 0, 0, 0.498039) 0px 5px 10px;
 }

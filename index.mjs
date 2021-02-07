@@ -4,7 +4,7 @@ import hbs from "express-handlebars";
 import cookieParser from "cookie-parser";
 
 const rootDir = process.cwd();
-const port = 5000;
+const port = process.env.PORT || 5000;
 const app = express();
 
 app.use("/static", express.static(path.join(rootDir,'static')));

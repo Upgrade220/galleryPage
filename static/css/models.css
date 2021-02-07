@@ -5,25 +5,30 @@
 main {
     display: grid;
     grid-template-columns: auto min-content auto;
-    grid-template-areas: ". m .";
+    grid-auto-rows: min-content;
+    grid-template-areas: ". t ." ". m .";
+}
+
+.title__page {
+    grid-area: t;
+    margin: 10px auto;
+    white-space: nowrap;
+    font-size: 60px;
+    font-weight: normal;
+    text-align: center;
+    letter-spacing: 9px;
+    text-shadow: rgba(10, 189, 240, 0.298039) 3px 3px 0px, 
+    rgba(254, 1, 1, 0.298039) -3px -3px 0px;
 }
 
 .main__block {
     grid-area: m;
-    display: flex;
-    flex-flow: column nowrap;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: min-content;
+    gap: 15px;
     align-items: center;
     font-family: "Raleway";
-}
-
-.title__page {
-    margin: 10px 0;
-    white-space: nowrap;
-    font-size: 60px;
-    font-weight: normal;
-    letter-spacing: 9px;
-    text-shadow: rgba(10, 189, 240, 0.298039) 3px 3px 0px, 
-    rgba(254, 1, 1, 0.298039) -3px -3px 0px;
 }
 
 .section {
@@ -37,12 +42,34 @@ main {
 }
 
 .section__img {
+    position: relative;
     width: var(--imgwidth);
     height: auto;
     grid-area: image;
+}
+
+.section__img .img__front {
+    width: var(--imgwidth);
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 
     0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.section__img .img__back {
+    width: var(--imgwidth);
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity .4s;
+    border-radius: 5px;
+}
+
+.section__img .img__back:hover {
+    opacity: 1;
 }
 
 .section__title {
@@ -57,10 +84,32 @@ main {
 .section__p {
     grid-area: paragraph;
     margin: 0;
+    width: calc(var(--imgwidth) + 50px);
     font-size: 18px;
 }
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1360px){
+    .main__block {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
+    .section__p {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 670px) {
+    .title__page {
+        white-space: normal;
+        font-size: 9vw;
+    }
+
+    .main__block {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+
     .section {
         justify-self: center;
         display: grid;
@@ -68,5 +117,13 @@ main {
         grid-template-rows: auto 3em auto;
         grid-template-areas: "image" "title" "paragraph";
         width: var(--imgwidth);
+    }
+
+    .section__img {
+        margin: 0 auto;
+    }
+
+    .section__p {
+        width: 100%;
     }
 }

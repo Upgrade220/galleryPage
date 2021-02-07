@@ -4,7 +4,7 @@ import hbs from "express-handlebars";
 import cookieParser from "cookie-parser";
 
 const rootDir = process.cwd();
-const port = process.env.PORT || 5000;
+const port = 5000;
 const app = express();
 
 app.use("/static", express.static(path.join(rootDir,'static')));
@@ -24,6 +24,10 @@ app.engine(
 
 app.get("/", (_, res) => {
     res.sendFile(path.join(rootDir, "/static/index.html"));
+});
+
+app.get("/gallery", (_, res) => {
+    res.sendFile(path.join(rootDir,"/static/gallery.html"))
 });
 
 app.get("/models", (_, res) => {

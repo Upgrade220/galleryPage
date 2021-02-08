@@ -26,6 +26,10 @@ app.get("/", (_, res) => {
     res.sendFile(path.join(rootDir, "/static/index.html"));
 });
 
+app.get("/galleries", (_, res) => {
+    res.sendFile(path.join(rootDir,"/static/galleries.html"))
+});
+
 app.get("/gallery", (_, res) => {
     res.sendFile(path.join(rootDir,"/static/gallery.html"))
 });

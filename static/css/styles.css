@@ -30,6 +30,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--bgpink);
+    display: flex;
+    flex-flow: column nowrap;
+    min-height: 100vh;
 }
 
 header {
@@ -83,6 +86,7 @@ main {
 }
 
 footer {
+    margin-top: auto;
     padding: 15px 0;
     display: flex;
     flex-flow: row nowrap;

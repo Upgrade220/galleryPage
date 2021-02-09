@@ -1,0 +1,68 @@
+.lightbox {
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    visibility: hidden;
+}
+
+.lightbox__img {
+    z-index: 99999;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 90%;
+    max-width: 90%;
+    border-radius: 1%;
+}
+
+.lightbox__prev, .lightbox__next, .lightbox__close {
+    z-index: 99999;
+    position: fixed;
+    border: none;
+    background-color: transparent;
+    font-size: 3vw;
+    color: white;
+    border-radius: 1%;
+    transition: .1s;
+}
+
+.lightbox__prev:hover,
+.lightbox__next:hover,
+.lightbox__close:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.lightbox__prev:focus,
+.lightbox__next:focus,
+.lightbox__close:focus {
+    outline: none;
+}
+
+.lightbox__close {
+    top: 0;
+    right: 0;
+    height: 5vh;
+    width: 5vw;
+}
+
+.lightbox__prev, .lightbox__next {
+    top: 50%;
+    transform: translate(0%, -50%);
+    height: 100vh;
+    width: 5vw;
+}
+
+.lightbox__prev {
+    left: 0;
+}
+
+.lightbox__next {
+    right: 0;
+}

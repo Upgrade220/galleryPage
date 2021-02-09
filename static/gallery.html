@@ -23,14 +23,38 @@
     <main>
         <h1 class="title__page">Gallery 1</h1>
         <div class="main__block">
-            <img class="gallery__img" src="/static/gallery_pics/cat1.jpg" alt="cat pic №1">
-            <img class="gallery__img" src="/static/gallery_pics/cat2.jpg" alt="cat pic №2">
-            <img class="gallery__img" src="/static/gallery_pics/cat3.jpg" alt="cat pic №3">
-            <img class="gallery__img" src="/static/gallery_pics/cat4.jpg" alt="cat pic №4">
-            <img class="gallery__img" src="/static/gallery_pics/cat5.jpg" alt="cat pic №5">
+            <picture>
+                <source type="image/avif" srcset="/static/gallery_pics/cat1.avif">
+                <source type="image/webp" srcset="/static/gallery_pics/cat1.webp">
+                <img class="gallery__img" src="/static/gallery_pics/cat1.jpg" alt="cat pic №1">
+            </picture>
+            <picture>
+                <source type="image/avif" srcset="/static/gallery_pics/cat2.avif">
+                <source type="image/webp" srcset="/static/gallery_pics/cat2.webp">
+                <img class="gallery__img" src="/static/gallery_pics/cat2.jpg" alt="cat pic №2">
+            </picture>
+            <picture>
+                <source type="image/avif" srcset="/static/gallery_pics/cat3.avif">
+                <source type="image/webp" srcset="/static/gallery_pics/cat3.webp">
+                <img class="gallery__img" src="/static/gallery_pics/cat3.jpg" alt="cat pic №3">
+            </picture>
+            <picture>
+                <source type="image/avif" srcset="/static/gallery_pics/cat4.avif">
+                <source type="image/webp" srcset="/static/gallery_pics/cat4.webp">
+                <img class="gallery__img" src="/static/gallery_pics/cat4.jpg" alt="cat pic №5">
+            </picture>
+            <picture>
+                <source type="image/avif" srcset="/static/gallery_pics/cat5.avif">
+                <source type="image/webp" srcset="/static/gallery_pics/cat5.webp">
+                <img class="gallery__img" src="/static/gallery_pics/cat5.jpg" alt="cat pic №6">
+            </picture>
         </div>
         <div class="lightbox">
-            <img class="lightbox__img" src="/static/gallery_pics/cat1.jpg" alt="cat pic big">
+            <picture>
+                <source type="image/avif" srcset="/static/gallery_pics/cat1.avif">
+                <source type="image/webp" srcset="/static/gallery_pics/cat1.webp">
+                <img class="lightbox__img" src="/static/gallery_pics/cat1.jpg" alt="cat pic big">
+            </picture>
             <button class="lightbox__prev">&lt;</button>
             <button class="lightbox__next">&gt;</button>
             <button class="lightbox__close">&#215;</button>

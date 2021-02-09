@@ -24,7 +24,11 @@
         <div class="main__block">
             <section class="section">
                 <div class="section__img">
-                    <img class="img__front" src="/static/pics/photographer.avif" alt="photographer">
+                    <picture>
+                        <source type="image/avif" srcset="/static/pics/photographer.avif">
+                        <source type="image/webp" srcset="/static/pics/photographer.webp">
+                        <img class="img__front" src="/static/pics/photographer.jpeg" alt="photographer">
+                    </picture>
                 </div>
                 <h2 class="section__title">Photographer</h2>
                 <p class="section__p">

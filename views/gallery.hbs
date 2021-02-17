@@ -1,0 +1,22 @@
+<h1 class="title__page">{{pageTitle}}</h1>
+<p class="p__page">{{pageP}}</p>
+<div class="main__block">
+    {{#each pictures}}
+    <picture>
+        <source type="image/avif" srcset="/static/gallery_pics/{{avifImg}}">
+        <source type="image/webp" srcset="/static/gallery_pics/{{webpImg}}">
+        <img class="gallery__img" src="/static/gallery_pics/{{jpegImg}}" alt="{{name}}">
+    </picture>
+    {{/each}}
+</div>
+<div class="lightbox">
+    <picture>
+        <source type="image/avif" srcset="">
+        <source type="image/webp" srcset="">
+        <img class="lightbox__img" src="" alt="cat pic big">
+    </picture>
+    <button class="lightbox__prev">&lt;</button>
+    <button class="lightbox__next">&gt;</button>
+    <button class="lightbox__close">&#215;</button>
+</div>
+<script src="/static/js/lightboxgallery.js"></script>

@@ -1,0 +1,23 @@
+<h1 class="title__page">{{pageTitle}}</h1>
+<div class="main__block">
+    {{#each models}}
+    <section class="section">
+        <div class="section__img">
+            <picture>
+                <source type="image/avif" srcset="/static/pics/{{frontAvifImg}}">
+                <source type="image/webp" srcset="/static/pics/{{frontWebpImg}}">
+                <img class="img__front" src="/static/pics/{{frontJpegImg}}" alt="{{name}}">
+            </picture>
+            <picture>
+                <source type="image/avif" srcset="/static/pics/{{backAvifImg}}">
+                <source type="image/webp" srcset="/static/pics/{{backWebpImg}}">
+                <img class="img__back" src="/static/pics/{{backJpegImg}}" alt="{{name}} back">
+            </picture>
+        </div>
+        <h2 class="section__title">{{name}}</h2>
+        <p class="section__p">
+            {{paragraph}}
+        </p>
+    </section>
+    {{/each}}
+</div>

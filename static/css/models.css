@@ -85,6 +85,7 @@ main {
 .section__p {
     grid-area: paragraph;
     margin: 0;
+    letter-spacing: 0.04em;
     width: calc(var(--imgwidth) + 50px);
     font-size: 18px;
 }

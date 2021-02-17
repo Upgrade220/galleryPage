@@ -8,13 +8,13 @@
   },
   "betterScripts": {
     "debug": {
-      "command": "node --experimental-modules index.mjs",
+      "command": "node index.mjs",
       "env": {
         "DEBUG": "express:*"
       }
     },
     "start": {
-      "command": "nodemon --experimental-modules index.mjs",
+      "command": "nodemon index.mjs",
       "env": {
         "DEBUG": "express:*"
       }

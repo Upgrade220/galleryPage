@@ -1,0 +1,16 @@
+<h1 class="title__page">{{pageTitle}}</h1>
+<div class="main__block">
+    <section class="section">
+        <div class="section__img">
+            <picture>
+                <source type="image/avif" srcset="/static/pics/{{avifImg}}">
+                <source type="image/webp" srcset="/static/pics/{{webpImg}}">
+                <img class="img__front" src="/static/pics/{{jpegImg}}" alt="{{sectionTitle}}">
+            </picture>
+        </div>
+        <h2 class="section__title">{{sectionTitle}}</h2>
+        <p class="section__p">
+            {{paragraph}}
+        </p>
+    </section>
+</div>

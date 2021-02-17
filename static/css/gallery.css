@@ -1,3 +1,5 @@
+@import 'lightbox.css';
+
 :root {
     --imgwidth: 600px;
 }
@@ -5,8 +7,9 @@
 main {
     display: grid;
     grid-template-columns: auto min-content auto;
-    grid-template-rows: min-content auto;
-    grid-template-areas: ". t ." ". m .";
+    grid-template-rows: min-content min-content auto;
+    grid-template-areas: ". t ." ". p ." ". m .";
+    font-family: raleway, sans-serif;
 }
 
 .title__page {
@@ -18,6 +21,13 @@ main {
     letter-spacing: 9px;
     text-shadow: rgba(10, 189, 240, 0.298039) 3px 3px 0px, 
     rgba(254, 1, 1, 0.298039) -3px -3px 0px;
+}
+
+.p__page {
+    grid-area: p;
+    margin: 10px auto;
+    font-size: 25px;
+    font-weight: normal;
 }
 
 .main__block {

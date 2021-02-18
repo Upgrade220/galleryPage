@@ -2,9 +2,20 @@
     --textside3d: #ababab;
 }
 
-#catimg {
-    height: 80vh;
+main {
+    display: inline-block;
+    height: 81.6vh;
     width: 100vw;
+    margin: 0;
+}
+
+picture {
+    height: 100%;
+}
+
+#catimg {
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 

@@ -1,18 +1,17 @@
-<main>
-    <h1 class="title__page">{{pageTitle}}</h1>
-    <div class="main__block">
-        {{#each galleries}}
-        <section class="section">
-            <a class="section__link" href="/gallery/{{link}}">
-                <picture>
-                    <source type="image/avif" srcset="/static/gallery_pics/{{avifImg}}">
-                    <source type="image/webp" srcset="/static/gallery_pics/{{webpImg}}">
-                    <img class="section__img" src="/static/gallery_pics/{{jpegImg}}" alt="{{paragraph}}">
-                </picture>
-            </a>
-            <p class="section__p">
-                {{paragraph}}
-            </p>
-        </section>
-        {{/each}}
-    </div>
+<h1 class="title__page">{{pageTitle}}</h1>
+<div class="main__block">
+    {{#each galleries}}
+    <section class="section">
+        <a class="section__link" href="/gallery/{{link}}">
+            <picture>
+                <source type="image/avif" srcset="/static/gallery_pics/{{avifImg}}">
+                <source type="image/webp" srcset="/static/gallery_pics/{{webpImg}}">
+                <img class="section__img" src="/static/gallery_pics/{{jpegImg}}" alt="{{paragraph}}">
+            </picture>
+        </a>
+        <p class="section__p">
+            {{paragraph}}
+        </p>
+    </section>
+    {{/each}}
+</div>

@@ -1,5 +1,4 @@
 import fs from "fs";
-import http2 from "http2";
 import express from "express";
 import * as path from "path";
 import hbs from "express-handlebars";
@@ -10,28 +9,30 @@ const port = process.env.PORT || 5000;
 const app = express();
 
 const galleryPath = './static/gallery_pics/';
-const galleryPFileName = 'p.txt';
-const galleryMImgFileName = 'mainImg.txt';
+const galleryJSONFileName = 'info.json';
 
 let models = [
     {
-        name: "First Kitty", paragraph: "Some text ♥",
+        name: "First Kitty", 
+        paragraph: "Some text ♥",
         frontAvifImg: "model1.avif", frontWebpImg: "model1.webp", frontJpegImg: "model1.jpeg",
         backAvifImg: "model1back.avif", backWebpImg: "model1back.webp", backJpegImg: "model1back.jpg"
     },
     {
-        name: "Second Kitty", paragraph: "Some text ♥",
+        name: "Second Kitty", 
+        paragraph: "Some text ♥",
         frontAvifImg: "model2.avif", frontWebpImg: "model2.webp", frontJpegImg: "model2.jpg",
         backAvifImg: "model2back.avif", backWebpImg: "model2back.webp", backJpegImg: "model2back.jpg"
     },
     {
-        name: "Third Kitty", paragraph: "Some text ♥",
+        name: "Third Kitty", 
+        paragraph: "Some text ♥",
         frontAvifImg: "model3.avif", frontWebpImg: "model3.webp", frontJpegImg: "model3.jpeg",
         backAvifImg: "model3back.avif", backWebpImg: "model3back.webp", backJpegImg: "model3back.jpg"
     }
 ]
 
-const getDirectories = source =>
+const getDirectories = source => 
     fs.readdirSync(source, { withFileTypes: true })
         .filter(dirent => dirent.isDirectory())
         .map(dirent => dirent.name);
@@ -54,13 +55,13 @@ const parseGalleryDirs = function (path) {
             let ext = file.split('.').pop();;
             switch (ext) {
                 case 'jpg':
-                    jpegImgs.push(file);
+                    jpegImgs.push(`${dir}/${file}`);
                     break;
                 case 'webp':
-                    webpImgs.push(file);
+                    webpImgs.push(`${dir}/${file}`);
                     break;
                 case 'avif':
-                    avifImgs.push(file);
+                    avifImgs.push(`${dir}/${file}`);
                     break;
             }
         }
@@ -68,9 +69,10 @@ const parseGalleryDirs = function (path) {
             for (let i = 0; i < jpegImgs.length; i++) {
                 dirContent.pictures.push({ avifImg: avifImgs[i], webpImg: webpImgs[i], jpegImg: jpegImgs[i], name: jpegImgs[i].replace('.jpg', '') })
             }
-            dirContent.pageTitle = dir;
-            dirContent.pageP = fs.readFileSync(path + dir + '/' + galleryPFileName, 'utf-8');
-            dirContent.mainImg = fs.readFileSync(path + dir + '/' + galleryMImgFileName, 'utf-8');
+            let infoJson = JSON.parse(fs.readFileSync(path + dir + '/' + galleryJSONFileName, 'utf-8'));
+            dirContent.pageTitle = infoJson.title;
+            dirContent.pageP = infoJson.p;
+            dirContent.mainImg = `${dir}/${infoJson.mainImg}`;
             result.push(dirContent);
         }
     }

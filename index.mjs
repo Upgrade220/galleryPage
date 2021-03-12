@@ -13,38 +13,50 @@ const galleryJSONFileName = 'info.json';
 
 let models = [
     {
-        name: "First Kitty", 
+        name: "First Kitty",
         paragraph: "Some text ♥",
         frontAvifImg: "model1.avif", frontWebpImg: "model1.webp", frontJpegImg: "model1.jpeg",
         backAvifImg: "model1back.avif", backWebpImg: "model1back.webp", backJpegImg: "model1back.jpg"
     },
     {
-        name: "Second Kitty", 
+        name: "Second Kitty",
         paragraph: "Some text ♥",
         frontAvifImg: "model2.avif", frontWebpImg: "model2.webp", frontJpegImg: "model2.jpg",
         backAvifImg: "model2back.avif", backWebpImg: "model2back.webp", backJpegImg: "model2back.jpg"
     },
     {
-        name: "Third Kitty", 
+        name: "Third Kitty",
         paragraph: "Some text ♥",
         frontAvifImg: "model3.avif", frontWebpImg: "model3.webp", frontJpegImg: "model3.jpeg",
         backAvifImg: "model3back.avif", backWebpImg: "model3back.webp", backJpegImg: "model3back.jpg"
     }
 ]
 
-const getDirectories = source => 
+
+// const getDirectories = source => 
+//     fs.readdirSync(source, { withFileTypes: true })
+//         .filter(dirent => dirent.isDirectory())
+//         .map(dirent => dirent.name);
+
+const getSortedDirs = source =>
     fs.readdirSync(source, { withFileTypes: true })
-        .filter(dirent => dirent.isDirectory())
-        .map(dirent => dirent.name);
+    .filter(dirent => dirent.isDirectory())
+    .map(
+        function (d) { 
+            return { dir: d, bdate: fs.statSync(source + d.name).birthtime.getTime() } 
+        })
+    .sort((a,b) => a.bdate - b.bdate)
+    .map(o => o.dir.name);
 
 const getFiles = source =>
     fs.readdirSync(source, { withFileTypes: true })
         .filter(dirent => dirent.isFile())
         .map(dirent => dirent.name);
 
+//TODO: refactoring
 const parseGalleryDirs = function (path) {
     let result = [];
-    let dirs = getDirectories(path);
+    let dirs = getSortedDirs(path);
     for (let dir of dirs) {
         let dirContent = { pictures: [], pageTitle: '', pageP: '', mainImg: '' };
         let dirFiles = getFiles(path + dir).sort();

@@ -33,50 +33,55 @@ let models = [
 ]
 
 
-// const getDirectories = source => 
-//     fs.readdirSync(source, { withFileTypes: true })
-//         .filter(dirent => dirent.isDirectory())
-//         .map(dirent => dirent.name);
-
-const getSortedDirs = source =>
+const getDirectories = source =>
     fs.readdirSync(source, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(
-        function (d) { 
-            return { dir: d, bdate: fs.statSync(source + d.name).birthtime.getTime() } 
-        })
-    .sort((a,b) => a.bdate - b.bdate)
-    .map(o => o.dir.name);
+        .filter(dirent => dirent.isDirectory())
+        .sort((a, b) => Number(a.name) - Number(b.name))
+        .map(dirent => dirent.name);
+
+// const getSortedDirs = source =>
+//     fs.readdirSync(source, { withFileTypes: true })
+//     .filter(dirent => dirent.isDirectory())
+//     .map(
+//         function (d) {
+//             return { dir: d, bdate: fs.statSync(source + d.name).birthtime.getTime() }
+//         })
+//     .sort((a,b) => a.bdate - b.bdate)
+//     .map(o => o.dir.name);
 
 const getFiles = source =>
     fs.readdirSync(source, { withFileTypes: true })
         .filter(dirent => dirent.isFile())
         .map(dirent => dirent.name);
 
-//TODO: refactoring
+const getPicsArr = function (dirFiles, dir) {
+    let jpegImgs = [];
+    let webpImgs = [];
+    let avifImgs = [];
+    for (let file of dirFiles) {
+        let ext = file.split('.').pop();;
+        switch (ext) {
+            case 'jpg':
+                jpegImgs.push(`${dir}/${file}`);
+                break;
+            case 'webp':
+                webpImgs.push(`${dir}/${file}`);
+                break;
+            case 'avif':
+                avifImgs.push(`${dir}/${file}`);
+                break;
+        }
+    }
+    return {jpegImgs, webpImgs, avifImgs};
+}
+
 const parseGalleryDirs = function (path) {
     let result = [];
-    let dirs = getSortedDirs(path);
+    let dirs = getDirectories(path);
     for (let dir of dirs) {
         let dirContent = { pictures: [], pageTitle: '', pageP: '', mainImg: '' };
         let dirFiles = getFiles(path + dir).sort();
-        let jpegImgs = [];
-        let webpImgs = [];
-        let avifImgs = [];
-        for (let file of dirFiles) {
-            let ext = file.split('.').pop();;
-            switch (ext) {
-                case 'jpg':
-                    jpegImgs.push(`${dir}/${file}`);
-                    break;
-                case 'webp':
-                    webpImgs.push(`${dir}/${file}`);
-                    break;
-                case 'avif':
-                    avifImgs.push(`${dir}/${file}`);
-                    break;
-            }
-        }
+        let {jpegImgs, webpImgs, avifImgs} = getPicsArr(dirFiles, dir);
         if (jpegImgs.length === webpImgs.length && jpegImgs.length === avifImgs.length) {
             for (let i = 0; i < jpegImgs.length; i++) {
                 dirContent.pictures.push({ avifImg: avifImgs[i], webpImg: webpImgs[i], jpegImg: jpegImgs[i], name: jpegImgs[i].replace('.jpg', '') })

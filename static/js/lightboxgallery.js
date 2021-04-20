@@ -19,11 +19,11 @@ for (let i = 0; i < pics.length; i++) {
         lightboxPic.src = pics[i].src;
         position = i;
     })
-}
+};
 
 closeButton.addEventListener("click", () => {
     lightbox.style.visibility = "hidden";
-})
+});
 
 nextButton.addEventListener("click", () => {
     if (position >= pics.length - 1) {
@@ -36,7 +36,7 @@ nextButton.addEventListener("click", () => {
     lightboxSources[0].srcset = parentsources[0].srcset;
     lightboxSources[1].srcset = parentsources[1].srcset;
     lightboxPic.src = pics[position].src;
-})
+});
 
 prevButton.addEventListener("click", () => {
     if (position <= 0) {
@@ -49,4 +49,20 @@ prevButton.addEventListener("click", () => {
     lightboxSources[0].srcset = parentsources[0].srcset;
     lightboxSources[1].srcset = parentsources[1].srcset;
     lightboxPic.src = pics[position].src;
-})
+});
+
+document.addEventListener('keydown', function (e) {
+    if (lightbox.style.visibility === "visible") {
+        switch (e.code) {
+            case 'ArrowRight':
+                nextButton.click();
+                break;
+            case 'ArrowLeft':
+                prevButton.click();
+                break;
+            case 'Escape':
+                closeButton.click();
+                break;
+        }
+    }
+});
